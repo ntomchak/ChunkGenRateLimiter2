@@ -5,7 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitScheduler;
 
 
-public class ChunkGenRateLimiter extends JavaPlugin implements Listener {
+public class ChunkGenRateLimiter extends JavaPlugin {
 
 	private static ChunkGenRateLimiter instance;
 
