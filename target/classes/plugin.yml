@@ -1,0 +1,5 @@
+name: ChunkGenRateLimiter
+main: io.github.ntomchak.ChunkGenRateLimiter
+version: 1.0
+commands:
+  antilag:
