@@ -1,9 +1,9 @@
 package io.github.ntomchak;
 
-import java.util.ArrayDeque;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
 import java.util.UUID;
@@ -77,7 +77,7 @@ public class ChunkCountTracker {
     boolean hasQ = updatePlayer(uuid);
 
     if (!hasQ) {
-      chunks.put(uuid, new ArrayDeque<Long>());
+      chunks.put(uuid, new LinkedList<Long>());
     }
 
     Queue<Long> q = chunks.get(uuid);
