@@ -1,4 +1,4 @@
-package io.github.ntomchak;
+package io.github.ntomchak.chunkgenratelimiter;
 
 import java.util.HashSet;
 import java.util.UUID;
@@ -45,11 +45,13 @@ public class Listeners implements Listener {
         } else if (p.isGliding()) {
           p.setGliding(false);
         }
+        if (!restricted.contains(uuid)) {
+          p.sendMessage(
+              ChatColor.DARK_RED + "You have generated more than " + ChatColor.RED + ChunkCountTracker.getLimit()
+                  + ChatColor.DARK_RED + " chunks in the past minute. Please slow down this rate.");
+          new RecheckTask(chunkTracker, this, uuid).runTaskLater(ChunkGenRateLimiter.instance(), 20L * 120);
+        }
         restricted.add(uuid);
-        p.sendMessage(
-            ChatColor.DARK_RED + "You have generated more than " + ChatColor.RED + ChunkCountTracker.getLimit()
-                + ChatColor.DARK_RED + " chunks in the past minute. Please slow down this rate.");
-        new RecheckTask(chunkTracker, this, uuid).runTaskLater(ChunkGenRateLimiter.instance(), 20L * 120);
       }
     }
   }

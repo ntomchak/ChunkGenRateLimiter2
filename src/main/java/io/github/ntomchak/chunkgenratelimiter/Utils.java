@@ -1,4 +1,4 @@
-package io.github.ntomchak;
+package io.github.ntomchak.chunkgenratelimiter;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Chunk;
