@@ -76,11 +76,14 @@ public class ChunkCountTracker {
   public boolean addChunk(UUID uuid) {
     boolean hasQ = updatePlayer(uuid);
 
+    Queue<Long> q;
+    
     if (!hasQ) {
-      chunks.put(uuid, new LinkedList<Long>());
+      q = new LinkedList<Long>();
+      chunks.put(uuid, q);
+    } else {
+      q = chunks.get(uuid);
     }
-
-    Queue<Long> q = chunks.get(uuid);
 
     q.add(System.currentTimeMillis());
 
